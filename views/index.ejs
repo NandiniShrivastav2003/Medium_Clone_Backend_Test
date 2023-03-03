@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- we can use css in ejs file by using 
+    1.app.use(express.static(__dirname+'/public')); in index.js file.
+    2.using style tag without mentioning folder name as it can take path from index.js public folder.
+-->
+    <link  href="/style.css" rel="stylesheet" >
+
+</head>
+
+<body>
+    <h1 class="head">
+       Medium-Discover Stories,Research work from GLA Students
+
+    </h1>
+    <h2>All Products</h2>
+    <div class="box">
+        <a href="/products/new" id="top">Add new Product</a>
+    <% for(let product of products){%>
+    <ul class="container">
+        <li><%= product.title %> </li>
+        <li><%= product.description%></li>
+        <li><%= product.markdown %></li>
+        <a href="/products/<%= product.id %>" id="showbtn">Show </a>
+      
+    </ul>
+    <%}%>
+</div>
+</body>
+
+</html>
